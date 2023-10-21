@@ -1,0 +1,14 @@
+{
+  "name": "b3xie",
+  "version": "1.0.0",
+  "description": "b3x's website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "b3x",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}
