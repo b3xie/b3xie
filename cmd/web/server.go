@@ -24,7 +24,9 @@ func main() {
 	}
 	e.Renderer = t
 	e.Static("/dist", "dist")
-	e.GET("/dog", handler.Dog)
+	e.GET("/guestbook", handler.Guestbook)
 	e.GET("/", handler.Hello)
+	e.GET("/bex", handler.Bex)
+	e.POST("/guestbook/add", handler.Bex)
 	e.Logger.Fatal(e.Start(":1329"))
 }

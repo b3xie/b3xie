@@ -544,6 +544,16 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -568,6 +578,10 @@ video {
   flex-direction: column;
 }
 
+.items-start {
+  align-items: flex-start;
+}
+
 .items-center {
   align-items: center;
 }
@@ -584,14 +598,22 @@ video {
   white-space: pre;
 }
 
-.bg-\[\#1C1C1A\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(28 28 26 / var(--tw-bg-opacity));
+.rounded {
+  border-radius: 0.25rem;
 }
 
-.bg-purpleDark {
+.bg-blackBex {
   --tw-bg-opacity: 1;
-  background-color: rgb(87 43 66 / var(--tw-bg-opacity));
+  background-color: rgb(14 15 14 / var(--tw-bg-opacity));
+}
+
+.bg-purpleMedium {
+  --tw-bg-opacity: 1;
+  background-color: rgb(138 44 92 / var(--tw-bg-opacity));
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .px-8 {
@@ -604,9 +626,19 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .font-mono {
@@ -630,6 +662,25 @@ video {
   line-height: 0.3rem;
 }
 
+.text-\[\#5BCEFA\;\] {
+  color: #5BCEFA;;
+}
+
+.text-\[\#5BCEFA\] {
+  --tw-text-opacity: 1;
+  color: rgb(91 206 250 / var(--tw-text-opacity));
+}
+
+.text-\[\#F5A9B8\] {
+  --tw-text-opacity: 1;
+  color: rgb(245 169 184 / var(--tw-text-opacity));
+}
+
+.text-pinkText {
+  --tw-text-opacity: 1;
+  color: rgb(217 0 112 / var(--tw-text-opacity));
+}
+
 .text-purpleMedium {
   --tw-text-opacity: 1;
   color: rgb(138 44 92 / var(--tw-text-opacity));
@@ -640,6 +691,23 @@ video {
   color: rgb(247 247 247 / var(--tw-text-opacity));
 }
 
+.inputfield {
+  background-color: transparent;
+  box-sizing: border-box;
+  color: whitesmoke;
+  padding: 10px;
+  caret-color: blueviolet;
+  border: transparent;
+  outline: none;
+  border-bottom: 2px solid #340027;
+  flex-grow: 1;
+}
+
+.hover\:text-pinkText:hover {
+  --tw-text-opacity: 1;
+  color: rgb(217 0 112 / var(--tw-text-opacity));
+}
+
 @media (min-width: 640px) {
   .sm\:text-\[14px\] {
     font-size: 14px;
@@ -648,4 +716,9 @@ video {
   .sm\:leading-\[0\.6rem\] {
     line-height: 0.6rem;
   }
+
+  .sm\:leading-\[1rem\] {
+    line-height: 1rem;
+  }
 }
+  

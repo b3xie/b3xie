@@ -1,0 +1,43 @@
+{{define "guestbook"}}
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/htmx.org@1.9.6" integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni" crossorigin="anonymous"></script>
+    <title></title>
+    <link rel="stylesheet" href="/dist/tailwind.css" />
+    <link rel="stylesheet" href="/dist/main.css" />
+</head>
+<body class="h-screen bg-blackBex font-mono">
+    <main class="flex flex-col items-center justify-center w-full ">
+        <nav class="min-w-[600px] flex flex-row items-start ">
+            <menu class="bg-purpleMedium">
+                <a class="text-xl" href="/"><p class="text-whiteText  hover:text-pinkText">cd /</p></a>
+            </menu>
+
+        </nav>
+<pre class="font-mono sm:text-[14px] text-[9px] whitespace-pre leading-[0.3rem] sm:leading-[1rem] text-purpleMedium font-black whitespace-pre my-8">
+                    _   
+    ___ _ _ ___ ___| |_| |_ ___ ___| |_ 
+   | . | | | -_|_ -|  _| . | . | . | '_|
+   |_  |___|___|___|_| |___|___|___|_,_|
+   |___|                                   
+</pre>
+<p class="bg-purpleMedium text-whiteText py-2">> you may take a rest from your journey and sign the guestbook</p>
+<form class="flex flex-col items-center min-w-[600px] py-4">
+    <div class="flex flex-row w-full items-start">
+        <label class="text-pinkText py-2">name (if you have one):</label>
+        <input type="text" name="guestName" class="inputfield">
+    </div>
+    <div class="flex flex-row w-full items-start">
+        <label class="text-pinkText py-2">write something:</label>
+        <input type="text" name="guestText" class="inputfield">
+    </div>
+    <button class="text-whiteText bg-purpleMedium px-4 py-2 my-2">
+        send!
+    </button>
+</form>
+    </main>
+</body>
+</html>
+{{end}}

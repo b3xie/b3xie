@@ -10,3 +10,16 @@
         src: url(/cmd/web/static/fonts/ttf-iosevka-27.3.0/iosevka-regular.ttf);
     }
 }
+
+.inputfield {
+    background-color: transparent;
+    box-sizing: border-box;
+    color: whitesmoke;
+    padding: 10px;
+    caret-color: blueviolet;
+    border: transparent;
+    outline: none;
+    border-bottom: 2px solid #340027;
+    flex-grow: 1;
+  }
+  
