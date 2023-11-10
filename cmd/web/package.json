@@ -4,11 +4,12 @@
   "description": "b3x's website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tailwindcss -i ./dist/main.css -o ./dist/tailwind.css --watch"
   },
   "author": "b3x",
   "license": "ISC",
   "dependencies": {
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.3.5"
   }
 }

@@ -1,20 +1,33 @@
 {{define "header"}}
 <header class="flex flex-col items-center justify-center w-full">
-    <menu class="flex py-8">
-        <pre class="font-mono sm:text-[14px] text-[9px] whitespace-pre leading-[0.3rem] sm:leading-[0.6rem] text-purpleMedium font-black whitespace-pre">
-<pre class="outer text-[#5BCEFA;]"> __ _               __    __ _ _                     _                 <br/></pre> 
-<pre class="outer text-[#5BCEFA]">| _| |__   _____  _|_ |  / _(_) | ___  ___ _   _ ___| |_ ___ _ __ ___  <br/></pre>  
-<pre class="middle text-[#F5A9B8]">| || '_ \ / _ \ \/ /| | | |_| | |/ _ \/ __| | | / __| __/ _ \ '_ ` _ \ <br/></pre>  
-<pre class="inner text-[#F5A9B8]">| || |_| |  __/&gt;  &lt; | | |  _| | |  __/\__ \ |_| \__ \ ||  __/ | | | | |<br/></pre>  
-<pre class="middle text-[#F5A9B8]">| ||_.__/ \___/_/\_\| | |_| |_|_|\___||___/\__, |___/\__\___|_| |_| |_|<br/></pre>  
-<pre class="outer text-[#5BCEFA]">|__|               |__|                    |___/                       <br/></pre>  
+  <menu class="flex py-8">
+    <pre
+      class="font-mono sm:text-[14px] text-[9px] whitespace-pre leading-[0.3rem] sm:leading-[0.6rem] text-purpleMedium font-black whitespace-pre"
+    >
+<pre> __ _               __    __ _ _                     _                 <br/></pre> 
+<pre>| _| |__   _____  _|_ |  / _(_) | ___  ___ _   _ ___| |_ ___ _ __ ___  <br/></pre>  
+<pre>| || '_ \ / _ \ \/ /| | | |_| | |/ _ \/ __| | | / __| __/ _ \ '_ ` _ \ <br/></pre>  
+<pre>| || |_| |  __/&gt;  &lt; | | |  _| | |  __/\__ \ |_| \__ \ ||  __/ | | | | |<br/></pre>  
+<pre>| ||_.__/ \___/_/\_\| | |_| |_|_|\___||___/\__, |___/\__\___|_| |_| |_|<br/></pre>  
+<pre>|__|               |__|                    |___/                       <br/></pre>  
         </pre>
-    </menu>
-    <menu class="flex flex-row min-w-[600px] hover:text-pinkText justify-around  bg-purpleMedium">
-        <a class="text-xl py-2 px-8" href="/"><p class="text-whiteText  hover:text-pinkText">root</p></a>
-        <a class="text-xl py-2 px-8 " href="/guestbook"><p class="text-whiteText  hover:text-pinkText">/guestbook</p></a>
-        <a class="text-xl py-2 px-8 " href="/bex"><p class="text-whiteText  hover:text-pinkText">/b3x</p></a>
-        <a class="text-xl py-2 px-8" href="/dog"><p class="text-whiteText  hover:text-pinkText">/projects</p></a>
-    </menu>
+  </menu>
+
+  <menu
+    class="flex flex-row min-w-[600px] justify-around border-t-2 border-b-2 py-2 border-purpleMedium"
+  >
+    <a class="text-xl py-2 px-8" href="/"
+      ><p class="text-whiteText hover:text-pinkText">/</p></a
+    >
+    <a class="text-xl py-2 px-8" href="/bex"
+      ><p class="text-whiteText hover:text-pinkText">/b3x</p></a
+    >
+    <a class="text-xl py-2 px-8" href="/guestbook"
+      ><p class="text-whiteText hover:text-pinkText">/guestbook</p></a
+    >
+    <a class="text-xl py-2 px-8" href="/dog"
+      ><p class="text-whiteText hover:text-pinkText">/blog</p></a
+    >
+  </menu>
 </header>
 {{end}}
