@@ -28,5 +28,6 @@ func main() {
 	e.GET("/", handler.Hello)
 	e.GET("/bex", handler.Bex)
 	e.POST("/guestbook/add", handler.AddGuestbookEntry)
+	e.GET("/guestbook/posts")
 	e.Logger.Fatal(e.Start(":1329"))
 }

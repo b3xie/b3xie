@@ -687,6 +687,18 @@ video {
   line-height: 0.3rem;
 }
 
+.leading-\[1rem\] {
+  line-height: 1rem;
+}
+
+.leading-\[0\.2rem\] {
+  line-height: 0.2rem;
+}
+
+.leading-\[0\.6rem\] {
+  line-height: 0.6rem;
+}
+
 .text-greenHighlight {
   --tw-text-opacity: 1;
   color: rgb(4 224 0 / var(--tw-text-opacity));
@@ -735,6 +747,34 @@ video {
 
   .sm\:leading-\[1rem\] {
     line-height: 1rem;
+  }
+
+  .sm\:leading-\[0\.7rem\] {
+    line-height: 0.7rem;
+  }
+
+  .sm\:leading-\[0\.1rem\] {
+    line-height: 0.1rem;
+  }
+
+  .sm\:leading-\[1\.2rem\] {
+    line-height: 1.2rem;
+  }
+
+  .sm\:leading-\[2rem\] {
+    line-height: 2rem;
+  }
+
+  .sm\:leading-\[1\.1rem\] {
+    line-height: 1.1rem;
+  }
+
+  .sm\:leading-\[1\.05rem\] {
+    line-height: 1.05rem;
+  }
+
+  .sm\:leading-\[1\.01rem\] {
+    line-height: 1.01rem;
   }
 }
   

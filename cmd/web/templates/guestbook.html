@@ -18,14 +18,14 @@
    |_  |___|___|___|_| |___|___|___|_,_|
    |___|                                   
 </pre>
-<p class="bg-purpleMedium text-whiteText py-2">> you may take a rest from your journey and sign the guestbook</p>
-<form class="flex flex-col items-center min-w-[600px] py-4" hx-post="/guestbook/add" method="post" hx-target="#guestbooklist">
+<p class="bg-purpleMedium text-whiteText py-2">send a letter to the ones that came before reading their</p>
+<form class="flex flex-col items-center min-w-[600px] py-4" hx-post="/guestbook/add" method="post" hx-target="this">
     <div class="flex flex-row w-full items-start">
-        <label class="text-pinkText py-2">name (if you have one):</label>
+        <label class="text-pinkText py-2">name/id/UUID/tripcode:</label>
         <input type="text" name="guestName" class="inputfield">
     </div>
     <div class="flex flex-row w-full items-start">
-        <label class="text-pinkText py-2">write something:</label>
+        <label class="text-pinkText py-2">payload:</label>
         <input type="text" name="guestText" class="inputfield">
     </div>
     <button class="text-whiteText bg-purpleMedium px-4 py-2 my-2" type="submit">

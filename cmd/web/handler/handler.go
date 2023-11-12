@@ -2,6 +2,7 @@ package handler
 
 import (
 	"encoding/csv"
+	"fmt"
 	"net/http"
 	"os"
 	"time"
@@ -34,14 +35,28 @@ func AddGuestbookEntry(c echo.Context) error {
 	post := [][]string{
 		{name, text},
 	}
-	file, err := os.OpenFile("internal/posts/posts.csv", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	file, err := os.OpenFile("./internal/posts/posts.csv", os.O_APPEND|os.O_CREATE|os.O_RDWR, 0644)
+
+	var latest error
 	if err != nil {
+		latest = err
 		panic(err)
 	}
-	defer file.Close()
 	err = csv.NewWriter(file).WriteAll(post)
 	if err != nil {
+		latest = err
 		panic(err)
 	}
+	reader := csv.NewReader(file)
+	prePosts, err := reader.Read()
+	fmt.Println(err)
+	fmt.Println(prePosts)
+	if err != nil {
+		println("fodeuuu")
+		panic(err)
+	}
+	fmt.Println("doneee")
+	fmt.Println(latest)
+	defer file.Close()
 	return c.Render(http.StatusOK, "guestbookpost", name)
 }
