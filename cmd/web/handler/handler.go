@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"encoding/csv"
-	"fmt"
+	"encoding/json"
+	"io"
 	"net/http"
 	"os"
 	"time"
@@ -11,8 +11,8 @@ import (
 )
 
 type Post struct {
-	Name    string
-	Message string
+	Name    string `json:"Name"`
+	Message string `json:"Message"`
 }
 
 func NotFound() {}
@@ -30,33 +30,41 @@ func Bex(c echo.Context) error {
 	return c.Render(http.StatusOK, "bex", args)
 }
 func AddGuestbookEntry(c echo.Context) error {
-	name := c.FormValue("guestName")
-	text := c.FormValue("guestText")
-	post := [][]string{
-		{name, text},
+	var received = []Post{
+		{
+			Name:    c.FormValue("guestName"),
+			Message: c.FormValue("guestText"),
+		},
 	}
-	file, err := os.OpenFile("./internal/posts/posts.csv", os.O_APPEND|os.O_CREATE|os.O_RDWR, 0644)
+	file, err := os.OpenFile("internal/posts/posts.json", os.O_RDWR, 0664)
+	if err != nil {
+		panic(err)
+	}
+	data, err := io.ReadAll(file)
+	if err != nil {
+		panic(err)
+	}
+	var posts []Post
+	json.Unmarshal(data, &posts)
+	result := append(received, posts...)
+	write, _ := json.MarshalIndent(result, "", "	")
+	os.WriteFile("internal/posts/posts.json", write, 0664)
+	if err != nil {
+		panic(err)
+	}
 
-	var latest error
+	return c.Render(http.StatusOK, "guestbookpost", posts)
+}
+func GetGuestbookentries(c echo.Context) error {
+	file, err := os.OpenFile("internal/posts/posts.json", os.O_RDWR, 0664)
 	if err != nil {
-		latest = err
 		panic(err)
 	}
-	err = csv.NewWriter(file).WriteAll(post)
+	data, err := io.ReadAll(file)
 	if err != nil {
-		latest = err
 		panic(err)
 	}
-	reader := csv.NewReader(file)
-	prePosts, err := reader.Read()
-	fmt.Println(err)
-	fmt.Println(prePosts)
-	if err != nil {
-		println("fodeuuu")
-		panic(err)
-	}
-	fmt.Println("doneee")
-	fmt.Println(latest)
-	defer file.Close()
-	return c.Render(http.StatusOK, "guestbookpost", name)
+	var posts []Post
+	json.Unmarshal(data, &posts)
+	return c.Render(http.StatusOK, "guestbookpost", posts)
 }
