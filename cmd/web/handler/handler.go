@@ -2,6 +2,7 @@ package handler
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -15,7 +16,10 @@ type Post struct {
 	Message string `json:"Message"`
 }
 
-func NotFound() {}
+func ErrorHandler(err error, c echo.Context) {
+	a, _ := err.(*echo.HTTPError)
+	c.Render(http.StatusNotFound, "error", a)
+}
 func Hello(c echo.Context) error {
 	time := time.Now()
 	return c.Render(http.StatusOK, "index", time)
@@ -30,6 +34,10 @@ func Bex(c echo.Context) error {
 	return c.Render(http.StatusOK, "bex", args)
 }
 func AddGuestbookEntry(c echo.Context) error {
+	fmt.Println("post")
+	if c.FormValue("guestName") == "" || c.FormValue("guestText") == "" {
+		return c.String()
+	}
 	var received = []Post{
 		{
 			Name:    c.FormValue("guestName"),
@@ -53,7 +61,7 @@ func AddGuestbookEntry(c echo.Context) error {
 		panic(err)
 	}
 
-	return c.Render(http.StatusOK, "guestbookpost", posts)
+	return c.Render(http.StatusOK, "guestbookpost", result)
 }
 func GetGuestbookentries(c echo.Context) error {
 	file, err := os.OpenFile("internal/posts/posts.json", os.O_RDWR, 0664)

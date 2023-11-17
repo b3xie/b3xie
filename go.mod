@@ -2,7 +2,12 @@ module b3xie
 
 go 1.21.1
 
-require github.com/labstack/echo/v4 v4.11.2
+require github.com/labstack/echo/v4 v4.11.3
+
+require (
+	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
+	golang.org/x/time v0.3.0 // indirect
+)
 
 require (
 	github.com/labstack/echo v3.3.10+incompatible

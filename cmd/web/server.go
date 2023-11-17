@@ -6,6 +6,7 @@ import (
 	"io"
 
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 type Template struct {
@@ -23,11 +24,13 @@ func main() {
 			"templates/*.html")),
 	}
 	e.Renderer = t
+	e.Use(middleware.RateLimiter(middleware.NewRateLimiterMemoryStore(3)))
 	e.Static("/dist", "dist")
 	e.GET("/guestbook", handler.Guestbook)
 	e.GET("/", handler.Hello)
 	e.GET("/bex", handler.Bex)
 	e.POST("/guestbook/add", handler.AddGuestbookEntry)
 	e.GET("guestbook/get", handler.GetGuestbookentries)
+	e.HTTPErrorHandler = handler.ErrorHandler
 	e.Logger.Fatal(e.Start(":1329"))
 }

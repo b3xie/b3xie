@@ -32,8 +32,11 @@
     <button class="text-whiteText bg-purpleMedium px-4 py-2 my-2" type="submit">
         send!
     </button>
+    <div id="guestbooklist" hx-trigger="load" hx-get="/guestbook/get" hx-target="this">
+
+    </div>
 </form>
-    <div id="guestbooklist"></div>
+
     </main>
 </body>
 </html>
