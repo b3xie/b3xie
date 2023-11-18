@@ -36,7 +36,7 @@ func Bex(c echo.Context) error {
 func AddGuestbookEntry(c echo.Context) error {
 	fmt.Println("post")
 	if c.FormValue("guestName") == "" || c.FormValue("guestText") == "" {
-		return c.String()
+		return c.NoContent(http.StatusBadRequest)
 	}
 	var received = []Post{
 		{

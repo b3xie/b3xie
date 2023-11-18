@@ -2,6 +2,7 @@ package main
 
 import (
 	"b3xie/cmd/web/handler"
+	"b3xie/cmd/web/mdparser"
 	"html/template"
 	"io"
 
@@ -32,5 +33,7 @@ func main() {
 	e.POST("/guestbook/add", handler.AddGuestbookEntry)
 	e.GET("guestbook/get", handler.GetGuestbookentries)
 	e.HTTPErrorHandler = handler.ErrorHandler
+	mdparser.ParseNewFiles()
 	e.Logger.Fatal(e.Start(":1329"))
+
 }
