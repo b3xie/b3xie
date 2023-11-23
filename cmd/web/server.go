@@ -34,6 +34,7 @@ func main() {
 	e.GET("guestbook/get", handler.GetGuestbookentries)
 	e.HTTPErrorHandler = handler.ErrorHandler
 	mdparser.ParseNewFiles()
+	
 	e.Logger.Fatal(e.Start(":1329"))
 
 }

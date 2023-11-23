@@ -1,11 +1,9 @@
-FROM golang:1.21
-WORKDIR /app
-COPY go.mod go.sum ./
-COPY ./ ./
+FROM alpine as base
+WORKDIR /
+COPY . .
+RUN apk add go
 RUN go mod download
-RUN cd cmd/web/
-RUN ls
-RUN go build -o /b3xie
-CMD ["./b3xie"]
+RUN CGO_ENABLED=0 GOOS=linux go build -o /cmd/web/server ./cmd/web/server.go
+COPY /cmd/web/ ./
 EXPOSE 1329
-ENTRYPOINT ["./cmd/web/server.go"]
+ENTRYPOINT ./cmd/web/server
