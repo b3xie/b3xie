@@ -20,23 +20,24 @@ func ErrorHandler(err error, c echo.Context) {
 	a, _ := err.(*echo.HTTPError)
 	c.Render(http.StatusNotFound, "error", a)
 }
-func Hello(c echo.Context) error {
+func Index(c echo.Context) error {
 	time := time.Now()
 	return c.Render(http.StatusOK, "index", time)
 }
 func Guestbook(c echo.Context) error {
-	time := time.Now()
-	println("request received")
-	return c.Render(http.StatusOK, "guestbook", time)
+	return c.Render(http.StatusOK, "guestbook")
 }
 func Bex(c echo.Context) error {
 	args := make([]int, 1)
 	return c.Render(http.StatusOK, "bex", args)
 }
 func AddGuestbookEntry(c echo.Context) error {
-	fmt.Println("post")
 	if c.FormValue("guestName") == "" || c.FormValue("guestText") == "" {
 		return c.NoContent(http.StatusBadRequest)
+	}
+	fmt.Println("potato")
+	if len(c.FormValue("guestName")) > 50 || len(c.FormValue("guestText")) > 100 {
+		return c.NoContent(http.StatusRequestEntityTooLarge)
 	}
 	var received = []Post{
 		{

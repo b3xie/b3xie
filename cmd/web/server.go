@@ -28,13 +28,13 @@ func main() {
 	e.Use(middleware.RateLimiter(middleware.NewRateLimiterMemoryStore(3)))
 	e.Static("/dist", "dist")
 	e.GET("/guestbook", handler.Guestbook)
-	e.GET("/", handler.Hello)
+	e.GET("/", handler.Index)
 	e.GET("/bex", handler.Bex)
 	e.POST("/guestbook/add", handler.AddGuestbookEntry)
 	e.GET("guestbook/get", handler.GetGuestbookentries)
 	e.HTTPErrorHandler = handler.ErrorHandler
 	mdparser.ParseNewFiles()
-	
+
 	e.Logger.Fatal(e.Start(":1329"))
 
 }
