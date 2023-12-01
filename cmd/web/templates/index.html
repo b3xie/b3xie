@@ -5,10 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/htmx.org@1.9.6" integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni" crossorigin="anonymous"></script>
     <title></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="./dist/tailwind.css" />
 </head>
-<body class="h-screen bg-blackBex font-mono">
+<body class="h-screen bg-blackBex font-mono flex flex-col items-center">
     {{template "header" .}}
+    <section class="max-w-[900px] min-w-[700px] flex flex-col space-y-4 py-8 text-whiteText">
+        <div class="flex flex-row items-center space-x-4 min-w-[700px]">
+            <img src="https://www.gravatar.com/avatar/795bd98ed98746c9a27d8dd21a5fdacd?s=170" class="rounded-md" height="170" width="170" >
+            <div class="flex-col flex items-start space-y-4">
+                <h1 class="text-xl">Hi I'm b3x 
+
+                </h1>
+                <h1 class="text-pinkText">
+                    <span class="material-symbols-outlined">
+                        pets
+                    </span>
+                    <span class="material-symbols-outlined">
+                        pet_supplies
+                        </span>
+                    Puppy Without Organs
+                    
+                </h1> 
+                <h1 class="text-pinkText">
+                    <span class="text-xl">ΘΔ</span>
+                    Therian
+                </h1> 
+                <h1 class="text-pinkText">
+                    <span class="material-symbols-outlined">
+                        transgender
+                        </span>
+                    Trans
+                </h1> 
+                
+            </div>
+          
+        </div>
+
+        <p>Noob Software Engineer, Mechasexual, destroyer of all genders, annoying linux user, and eepy puppy!<br>
+            Currently exploring backend development, Linux system programming and philosophy.<br>
+            Sharing my thoughts about all this in this website.
+        </p>
+        <p>
+            <span class="text-pinkText">Main langs: </span>Typescript, Go, Rust, C and Bash scripting<br>
+            <span class="text-pinkText">Tools and OS: </span>Arch, VSCode, LunarVim (sometimes)<br>
+            <span class="text-pinkText">Affiliations: </span> EmberLabs and INTERLINKED Collective<br><br>
+
+            For projects, head over to my <a class="text-pinkText" href="https://github.com/machinedaughter">Github</a>
+        </p>
+
+        <span class="text-center">
+            <p>
+                b3x's stuff:
+            </p> 
+            <span class="text-pinkText flex flex-col space-y-4">
+                <a href="/">✦ＢＥＸＣＯＲＥ✦</a>
+                <a href="/">✦ＢＬＯＧＰＯＳＴＳ✦</a>
+            </span>
+        </span>
+
+    </section>
 </body>
 </html>
 {{end}}
