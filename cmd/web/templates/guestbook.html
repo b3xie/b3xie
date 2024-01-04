@@ -20,7 +20,7 @@
 </pre>
 
 <form class="flex flex-col items-center min-w-[600px] py-4" hx-post="/guestbook/add" method="post" hx-target="this">
-    <p class="bg-purpleMedium text-whiteText py-2 px-8">[b3x]: feel free to write a message!</p>
+    <p class="bg-purpleMedium text-whiteText py-2 px-8">you can only send one message (per ip of course)!</p>
     <div class="flex flex-row w-full items-start">
         <label class="text-pinkText py-2">name/id/UUID/tripcode:</label>
         <input type="text" name="guestName" class="inputfield">
@@ -29,9 +29,15 @@
         <label class="text-pinkText py-2">payload:</label>
         <input type="text" name="guestText" class="inputfield">
     </div>
-    <button class="text-whiteText bg-purpleMedium px-4 py-2 my-2" type="submit">
-        send!
-    </button>
+    <div class="flex-row">
+        <button class="text-whiteText bg-purpleMedium px-4 py-2 my-2" type="submit">
+            send!
+        </button>
+        <button class="text-whiteText bg-purpleMedium px-4 py-2 my-2" hx-delete="/guestbook/delete">
+            delete my post
+        </button>
+    </div>
+
     <div id="guestbooklist" hx-trigger="load" hx-get="/guestbook/get" hx-target="this">
 
     </div>

@@ -5,6 +5,7 @@ import (
 	"b3xie/cmd/web/mdparser"
 	"html/template"
 	"io"
+	"time"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
@@ -25,16 +26,27 @@ func main() {
 			"templates/*.html")),
 	}
 	e.Renderer = t
-	e.Use(middleware.RateLimiter(middleware.NewRateLimiterMemoryStore(3)))
 	e.Static("/dist", "dist")
 	e.GET("/guestbook", handler.Guestbook)
+	config := middleware.RateLimiterConfig{
+		Skipper: middleware.DefaultSkipper,
+		Store: middleware.NewRateLimiterMemoryStoreWithConfig(
+			middleware.RateLimiterMemoryStoreConfig{Rate: 2, Burst: 1, ExpiresIn: 1 * time.Hour},
+		),
+		IdentifierExtractor: func(ctx echo.Context) (string, error) {
+			id := ctx.RealIP()
+			return id, nil
+		},
+	}
 	e.GET("/", handler.Index)
+	e.GET("/redirect", handler.HtmxRefresh)
 	e.GET("/bex", handler.Bex)
-	e.POST("/guestbook/add", handler.AddGuestbookEntry)
+	e.POST("/guestbook/add", handler.AddGuestbookEntry, middleware.RateLimiterWithConfig(config))
 	e.GET("guestbook/get", handler.GetGuestbookentries)
+	e.DELETE("guestbook/delete", handler.GuestbookDelete)
 	e.HTTPErrorHandler = handler.ErrorHandler
 	mdparser.ParseNewFiles()
 
-	e.Logger.Fatal(e.Start(":1329"))
+	e.Logger.Fatal(e.Start(":8080"))
 
 }
