@@ -1,7 +1,7 @@
 ```Rust
 enum b3xie {
   Rebecca,
-  b3x,
+  Bex,
   Machine
 }
 ```
